@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ChefsNDishes</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/table.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/ChefsNDishes.styles.css" asp-append-version="true" /> *@
+</head>
+
+<body>
+    <header>
+        <nav class="container-width-50p flex jc-center gap-50 pt-20 pb-20">
+            <a asp-action="ChefIndex" asp-controller="Chef">Chefs</a>|
+            <a asp-action="DishIndex" asp-controller="Dish">Dishes</a>|
+            <a asp-action="NewChef" asp-controller="Chef">Add a Chef</a>|
+            <a asp-action="NewDish" asp-controller="Dish">Add a Dish</a>
+        </nav>
+    </header>
+    @RenderBody()
+    <footer>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

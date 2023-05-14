@@ -1,0 +1,66 @@
+@{
+    ViewData["Title"] = "Add A Dish";
+}
+
+<div class="container-width-40p tac border-b-2 pt-10 pb-10 mt-20">
+    <h1>Add a dish</h1>
+</div>
+@model Dish
+<form asp-action="CreateDish" asp-controller="Dish" method="post" class="container-width-50p mt-50">
+    <div class="flex">
+        <div class="flex-1 flex jc-center">
+            <div>
+                <div>
+                    <label asp-for="Name"></label>
+                    <br />
+                    <input asp-for="Name" class="mt-10">
+                    <br />
+                    <span asp-validation-for="Name" class="red"></span>
+                </div>
+                <div class="mt-20">
+                    <label asp-for="Calories"></label>
+                    <br />
+                    <input asp-for="Calories" class="mt-10">
+                    <br />
+                    <span asp-validation-for="Calories" class="red"></span>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 flex jc-center">
+            <div>
+                <label asp-for="ChefId"></label>
+                <div class="flex jc-center">
+                    <select asp-for="ChefId" class="mt-10">
+                        @foreach (Chef chef in ViewBag.AllChefs)
+                        {
+                            <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="ChefId" class="red"></span>
+            </div>
+        </div>
+        <div class="flex-1 flex jc-center">
+            <div>
+                <div>
+                    <label asp-for="Tastiness"></label>
+                    <br />
+                    <div class="flex jc-center">
+
+                        <select asp-for="Tastiness" class="mt-10">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="Tastiness" class="red"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tae mt-20 mr-100">
+        <button>Add Dish</button>
+    </div>
+</form>
